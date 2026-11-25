@@ -59,6 +59,9 @@ When ownership is unclear, the item is left unassigned rather than sent to a tea
 
 <img width="2880" height="1342" alt="Screenshot 2026-11-25 at 9 54 38 PM" src="https://github.com/user-attachments/assets/1371b551-f945-4411-aa7e-b797ab60ac95" />
 
+<img width="1438" height="685" alt="Screenshot 2026-11-25 at 10 11 47 PM" src="https://github.com/user-attachments/assets/e02847c0-7705-492b-bde5-6dc23989bc77" />
+
+
 
 ## Prototype boundaries
 
