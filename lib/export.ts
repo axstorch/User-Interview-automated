@@ -1,4 +1,4 @@
-import { interviewDate, ownerOf, TYPE_LABEL } from "./data";
+import { clusterOf, interviewDate, ownerOf, TYPE_LABEL } from "./data";
 import { statusLabel } from "./statuses";
 import type { Interview, TeamState } from "./types";
 
@@ -45,7 +45,7 @@ export function toMarkdown(list: Interview[], state: TeamState): string {
         const s = state.actionables[a.id];
         const st = statusLabel(s?.status ?? "open");
         const extra = s?.jiraUrl ? ` · ${s.jiraUrl}` : s?.reason ? ` · Reason: ${s.reason}` : "";
-        out.push(`- [${st}] ${a.text} — ${a.area}, team ${ownerOf(a, s)}, ${a.priority} priority${extra}`);
+        out.push(`- [${st}] ${a.text}${a.inferred ? " (AI suggestion)" : ""} — ${a.area}, team ${ownerOf(a, s)}, ${a.priority} priority${extra}`);
       }
       out.push(``);
     }
@@ -66,7 +66,7 @@ const csvCell = (v: unknown) => {
 /** One row per actionable, so it pastes straight into a sheet or a Jira import. */
 export function toCsv(list: Interview[], state: TeamState): string {
   const head = [
-    "Interview date", "Interviewee", "Type", "Actionable", "Area", "Priority", "Owner team", "Status",
+    "Interview date", "Interviewee", "Type", "Actionable", "Area", "Priority", "Owner team", "Status", "Suggested by", "Repeated ask",
     "Jira link", "Reason", "Last updated by", "Interview link",
   ];
   const rows = list.flatMap((i) =>
@@ -75,6 +75,7 @@ export function toCsv(list: Interview[], state: TeamState): string {
       return [
         fmtDate(interviewDate(i)), i.interviewee.name, TYPE_LABEL[i.interviewee.type] ?? i.interviewee.type,
         a.text, a.area, a.priority, ownerOf(a, s), statusLabel(s?.status ?? "open"),
+        a.inferred ? "AI" : "Interviewer", clusterOf(a.id)?.title ?? "",
         s?.jiraUrl ?? "", s?.reason ?? "", s?.updatedBy ?? "", i.slackUrl,
       ];
     }),

@@ -12,10 +12,10 @@ import { useTeam } from "./TeamState";
  */
 export function SlackPreview({ interview }: { interview: Interview }) {
   const { state } = useTeam();
-  const byRoute = new Map<string, string[]>();
+  const byRoute = new Map<string, { text: string; inferred: boolean }[]>();
   for (const a of interview.actionables) {
     const r = routeOf(a, state.actionables[a.id]);
-    byRoute.set(r, [...(byRoute.get(r) ?? []), a.text]);
+    byRoute.set(r, [...(byRoute.get(r) ?? []), { text: a.text, inferred: !!a.inferred }]);
   }
   const groups = [...byRoute.entries()].sort(([a], [b]) => Number(a === NO_OWNER) - Number(b === NO_OWNER));
 
@@ -64,7 +64,7 @@ export function SlackPreview({ interview }: { interview: Interview }) {
                   )}
                   <ul>
                     {items.map((t, i) => (
-                      <li key={i}>{t}</li>
+                      <li key={i}>{t.text}{t.inferred && <i className="muted"> (AI suggestion)</i>}</li>
                     ))}
                   </ul>
                 </div>

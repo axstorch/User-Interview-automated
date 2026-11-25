@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { INTERVIEW_STATUS_LABEL, interviewDate, interviews, TYPE_LABEL } from "@/lib/data";
+import { INTERVIEW_STATUS_LABEL, interviewDate, interviews, snapshotDate, TYPE_LABEL, uniqueAskCount } from "@/lib/data";
 import { download, fmtDate, toCsv, toMarkdown } from "@/lib/export";
 import { useTeam } from "@/components/TeamState";
 
@@ -66,6 +66,7 @@ export default function InterviewsPage() {
         <div>
           <h1>User interviews</h1>
           <p>Every interview from #product-user-interviews, with what we learned and what we should do about it.</p>
+          <p className="snapshot">Snapshot of the Slack channel as of {snapshotDate}. Not live: interviews posted after that are not here yet.</p>
         </div>
       </div>
 
@@ -74,7 +75,7 @@ export default function InterviewsPage() {
         <div className="stat"><b>{totals.insights}</b><span>Insights</span></div>
         <Link href="/actionables" className="stat accent" style={{ textDecoration: "none" }}>
           <b>{totals.open}<span style={{ fontSize: 14, color: "var(--ink-3)" }}> / {totals.actionables}</span></b>
-          <span>Actionables still open →</span>
+          <span>Actionables still open · {uniqueAskCount} different asks →</span>
         </Link>
         <div className="stat"><b>{totals.awaiting}</b><span>Awaiting insights</span></div>
       </div>

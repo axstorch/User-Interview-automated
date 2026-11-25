@@ -74,8 +74,16 @@ export interface Interview {
   themes: string[];
 }
 
+/** The same ask raised in different interviews. */
+export interface Cluster {
+  id: string;
+  title: string;
+  actionableIds: string[];
+}
+
 export interface Dataset {
   generatedAt: string;
+  clusters?: Cluster[];
   channel: { id: string; name: string };
   people: Record<string, { name: string }>;
   meta?: { ts: string; author: string; summary: string }[];

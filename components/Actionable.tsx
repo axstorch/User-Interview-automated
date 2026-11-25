@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { NO_OWNER, ownerOf, podOf, ROUTE_KEYS, routeOf, slackMessageUrl } from "@/lib/data";
+import { clusterMembers, clusterOf, NO_OWNER, ownerOf, podOf, ROUTE_KEYS, routeOf, slackMessageUrl } from "@/lib/data";
 import { fmtDate } from "@/lib/export";
 import { STATUSES, statusLabel } from "@/lib/statuses";
 import type { Actionable as A, ActionableStatus, Interview } from "@/lib/types";
@@ -22,10 +22,35 @@ export function StatusBadge({ status }: { status: ActionableStatus }) {
   return <span className={`badge ${TONE[status]}`}>{statusLabel(status)}</span>;
 }
 
-type Pending = { status: ActionableStatus; needs: "jiraUrl" | "reason" | "newOwner" };
+export type Pending = { status: ActionableStatus; needs: "jiraUrl" | "reason" | "newOwner" };
 
-export function ActionableItem({ interview, a, showInterview = false }: { interview: Interview; a: A; showInterview?: boolean }) {
+/** Makes the AI's own suggestions impossible to mistake for what the interviewer wrote. */
+export function SourceBadge({ inferred }: { inferred: boolean }) {
+  return inferred ? (
+    <span className="badge warn" title="The interviewer didn't write this. The AI suggested it from an insight, so check it before acting.">
+      AI suggestion
+    </span>
+  ) : (
+    <span className="badge ok" title="The interviewer wrote this in the Slack thread">
+      From the interviewer
+    </span>
+  );
+}
+
+export function ActionableItem({
+  interview,
+  a,
+  showInterview = false,
+  hideCluster = false,
+}: {
+  interview: Interview;
+  a: A;
+  showInterview?: boolean;
+  hideCluster?: boolean;
+}) {
   const { state, me, changeStatus } = useTeam();
+  const cluster = clusterOf(a.id);
+  const others = cluster ? clusterMembers(cluster).filter((m) => m.actionable.id !== a.id) : [];
   const s = state.actionables[a.id];
   const status = s?.status ?? "open";
   const owner = ownerOf(a, s);
@@ -61,19 +86,31 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
         <div className="text">{a.text}</div>
         {a.rationale && <div className="why">{a.rationale}</div>}
         <div className="meta" style={{ marginTop: 6 }}>
+          <SourceBadge inferred={!!a.inferred} />
           <span className="badge">{a.area}</span>
           <span className={`pill-${a.priority}`}>● {a.priority} priority</span>
           <span title={podOf(route).owns}>
             Owner: <b style={{ color: route === NO_OWNER ? "var(--ink-3)" : "var(--ink)" }}>{owner}</b>
             {!s?.owner && route !== NO_OWNER && <span> (routed by AI)</span>}
           </span>
-          {a.inferred && <span title="The interviewer didn't say this outright; the AI drew it from the insight">AI-inferred</span>}
           {src && (
             <a className="src" href={src} target="_blank" rel="noreferrer">
               Source ↗
             </a>
           )}
         </div>
+        {!hideCluster && cluster && (
+          <div className="also">
+            Also raised in{" "}
+            {others.map((o, k) => (
+              <span key={o.actionable.id}>
+                {k > 0 && ", "}
+                <Link href={`/interviews/${encodeURIComponent(o.interview.id)}`}>{o.interview.interviewee.name}</Link>
+              </span>
+            ))}{" "}
+            · <Link href={`/actionables?group=${cluster.id}`}>See the grouped ask</Link>
+          </div>
+        )}
       </div>
       <div>
         <label className="sr-only" htmlFor={`st-${a.id}`} style={{ position: "absolute", left: -9999 }}>
@@ -150,7 +187,7 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
   );
 }
 
-function StatusDialog({
+export function StatusDialog({
   pending,
   owner,
   route,

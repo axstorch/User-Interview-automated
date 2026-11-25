@@ -1,6 +1,6 @@
 import raw from "@/data/interviews.json";
 import routingRaw from "@/data/routing.json";
-import type { Actionable, ActionableState, Dataset, Interview } from "./types";
+import type { Actionable, ActionableState, Cluster, Dataset, Interview } from "./types";
 
 export const dataset = raw as unknown as Dataset;
 
@@ -48,6 +48,29 @@ export const knownPeople: string[] = Array.from(new Set(Object.values(dataset.pe
 export const allActionables = interviews.flatMap((i) => i.actionables.map((a) => ({ interview: i, actionable: a })));
 
 export const actionableIds = new Set(allActionables.map((x) => x.actionable.id));
+
+// ---- Repeated asks: the same actionable raised in several interviews ----
+export const clusters: Cluster[] = dataset.clusters ?? [];
+const clusterByActionable = new Map(clusters.flatMap((c) => c.actionableIds.map((id) => [id, c] as const)));
+const actionableById = new Map(allActionables.map((x) => [x.actionable.id, x]));
+
+export const clusterOf = (actionableId: string): Cluster | undefined => clusterByActionable.get(actionableId);
+export const findCluster = (id: string) => clusters.find((c) => c.id === id);
+export const clusterMembers = (c: Cluster) => c.actionableIds.map((id) => actionableById.get(id)!).filter(Boolean);
+
+/** Actionables counted once per group. */
+export const uniqueAskCount = allActionables.length - clusters.reduce((n, c) => n + c.actionableIds.length - 1, 0);
+
+export const fmtInterviewDate = (i: Interview) =>
+  new Date(interviewDate(i)).toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", day: "numeric", month: "short", year: "numeric" });
+
+/** "25 Nov 2026": when the interviews were last read from Slack. */
+export const snapshotDate = new Date(dataset.generatedAt).toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata",
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
 export const interviewIds = new Set(interviews.map((i) => i.id));
 
 export function slackMessageUrl(ts?: string | null, threadTs?: string): string | undefined {

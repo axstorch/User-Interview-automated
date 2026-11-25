@@ -5237,5 +5237,178 @@
       ],
       "themes": []
     }
+  ],
+  "clusters": [
+    {
+      "id": "ratings-reviews",
+      "title": "Make ratings and reviews help students tell properties apart (Google ratings, sub-scores, critical reviews)",
+      "actionableIds": [
+        "1783576069.936119-a4",
+        "1775145205.077179-a4",
+        "1775378391.470419-a1"
+      ]
+    },
+    {
+      "id": "picture-the-room",
+      "title": "Help students picture the room: prominent videos, layouts and a sense of scale",
+      "actionableIds": [
+        "1787552471.835599-a4",
+        "1782987345.540399-a1",
+        "1782906158.968949-a5"
+      ]
+    },
+    {
+      "id": "room-inclusions",
+      "title": "List what each room includes and doesn't (bedding, utensils)",
+      "actionableIds": [
+        "1787552471.835599-a5",
+        "1783576069.936119-a3"
+      ]
+    },
+    {
+      "id": "nearby-distances",
+      "title": "Show distances to groceries, pharmacies and transit on the property page",
+      "actionableIds": [
+        "1791279504.440339-a2",
+        "1783868457.101209-a5"
+      ]
+    },
+    {
+      "id": "campus-distance",
+      "title": "Let students choose their university or campus and see distances from it",
+      "actionableIds": [
+        "1787553088.250749-a2",
+        "1783868457.101209-a2"
+      ]
+    },
+    {
+      "id": "price-clarity",
+      "title": "Make the full price clear: platform fees and why prices change by date",
+      "actionableIds": [
+        "1785225859.393959-a1",
+        "1779179475.734509-a5"
+      ]
+    },
+    {
+      "id": "cashback-clarity",
+      "title": "Show cashback and incentive terms clearly on the website and in the booking flow",
+      "actionableIds": [
+        "1783435771.092559-a2",
+        "1782906158.968949-a1",
+        "1775145205.077179-a5"
+      ]
+    },
+    {
+      "id": "payment-failures",
+      "title": "Fix payment failures for Indian students (cards on UK deposits, UPI, failed first payments)",
+      "actionableIds": [
+        "1790672443.519839-a1",
+        "1783435771.092559-a3",
+        "1778140280.967779-a4"
+      ]
+    },
+    {
+      "id": "guarantor",
+      "title": "Help students who have no UK guarantor (filter, badge, guidance)",
+      "actionableIds": [
+        "1783868457.101209-a1",
+        "1775145205.077179-a1"
+      ]
+    },
+    {
+      "id": "parents",
+      "title": "Design for parents: content that speaks to them and easy listing sharing",
+      "actionableIds": [
+        "1791279504.440339-a3",
+        "1778143552.879759-a4",
+        "1778148677.573399-a6"
+      ]
+    },
+    {
+      "id": "group-booking",
+      "title": "Support students who book as a group (shared shortlist, same-flat requirement, coordinated help)",
+      "actionableIds": [
+        "1791280138.905159-a2",
+        "1775378391.470419-a2",
+        "1779095958.125489-a3"
+      ]
+    },
+    {
+      "id": "viewings",
+      "title": "Make viewings easy to request, including video or virtual viewings",
+      "actionableIds": [
+        "1778148677.573399-a4",
+        "1775635733.194949-a1"
+      ]
+    },
+    {
+      "id": "whatsapp-first",
+      "title": "Reach students on WhatsApp first instead of calls",
+      "actionableIds": [
+        "1791280138.905159-a3",
+        "1783868457.101209-a4",
+        "1775635733.194949-a4"
+      ]
+    },
+    {
+      "id": "log-conversations",
+      "title": "Log agents' WhatsApp chats and calls against the lead in the CRM",
+      "actionableIds": [
+        "1783576069.936119-a1",
+        "1778143552.879759-a6"
+      ]
+    },
+    {
+      "id": "source-attribution",
+      "title": "Record where a student really came from (social, university lists, consultancy vs organic)",
+      "actionableIds": [
+        "1791280138.905159-a5",
+        "1782987345.540399-a2",
+        "1783576069.936119-a2",
+        "1778143552.879759-a5"
+      ]
+    },
+    {
+      "id": "amber-plus-promo",
+      "title": "Promote Amber+ earlier and more convincingly",
+      "actionableIds": [
+        "1782906158.968949-a2",
+        "1778143552.879759-a1",
+        "1782987345.540399-a4"
+      ]
+    },
+    {
+      "id": "pre-arrival-guide",
+      "title": "Give students a pre-arrival and first-days checklist",
+      "actionableIds": [
+        "1787552471.835599-a6",
+        "1785225859.393959-a2",
+        "1779095958.125489-a2"
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Publish structured safety information for properties and cities",
+      "actionableIds": [
+        "1787552471.835599-a1",
+        "1782906158.968949-a7"
+      ]
+    },
+    {
+      "id": "unibuddy",
+      "title": "Work with Unibuddy and student-run cohort groups",
+      "actionableIds": [
+        "1782906158.968949-a6",
+        "1778143552.879759-a2"
+      ]
+    },
+    {
+      "id": "youtube",
+      "title": "Work with student YouTube creators",
+      "actionableIds": [
+        "1783435771.092559-a5",
+        "1779095958.125489-a5"
+      ]
+    }
   ]
 }
