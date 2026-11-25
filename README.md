@@ -1,97 +1,97 @@
 # Interview Insights (prototype)
 
-One place for every user interview posted in Slack `#product-user-interviews`: who we spoke to, what we learned,
-what we should do about it, and what each owner decided.
+Turn user interviews into clear product decisions. Interview Insights brings research, customer needs, and follow-up decisions into one place—so the team can spot recurring problems, understand who they affect, and make sure useful feedback has an owner.
 
-**Prototype status.** The interviews are a snapshot read from Slack, with the analysis done by Claude, and committed
-as `data/interviews.json`. Nothing updates automatically yet: no Slack bot, no scheduled job, no login. See
-[What the real version adds](#what-the-real-version-adds).
+## Why it exists
 
-## What's in it
+Customer conversations are valuable when what we learn changes what we do. This prototype helps the product team:
 
-| Page | What it does |
+- See what customers are trying to do and where they get stuck.
+- Connect individual observations to themes appearing across interviews.
+- Turn feedback into decisions and follow-up work, with clear ownership.
+- Keep a record of what the team decided and why.
+
+The current interview collection is a snapshot from Slack `#product-user-interviews`, analyzed with Claude and committed as `data/interviews.json`. It does not update automatically yet. See [What a fuller version could add](#what-a-fuller-version-could-add).
+
+## How the team uses it
+
+| View | Product-team use |
 | --- | --- |
-| **Interviews** (`/`) | One row per interview. Search, filter by person type, status and theme, select rows, export Markdown or CSV. |
-| **Interview** (`/interviews/<id>`) | Summary, actionables (highlighted), key insights, gaps, notes by topic, questions for next time, pre-call context, comments, and a preview of the Slack message the bot would post. Every item links to the Slack message it came from. |
-| **Actionables** (`/actionables`) | Every actionable from every interview, filtered by status, owner, area and priority. This is the PM queue. |
-| **Themes** (`/themes`) | How many interviews touched each theme, with the insights behind it. |
+| **Interviews** (`/`) | Find and compare conversations. Search and filter by person type, status, and theme; select interviews to export as Markdown or CSV. |
+| **Interview** (`/interviews/<id>`) | Understand one conversation: its summary, key insights, gaps, topic notes, questions for next time, pre-call context, comments, actionables, and a preview of the Slack follow-up. |
+| **Actionables** (`/actionables`) | Review product follow-ups across interviews. Filter by status, owner, area, and priority to see what needs a decision or next step. |
+| **Themes** (`/themes`) | See which needs and topics recur across interviews, with the supporting insights behind each theme. |
 
-### Actionable statuses
+## From customer need to team decision
 
-| Status | Meaning | Asks for |
+Each actionable captures a potential response to something heard in an interview. The team can record what it decided, so feedback does not disappear after the conversation:
+
+| Status | What the decision communicates | Follow-up needed |
 | --- | --- | --- |
-| Open | No decision yet (default) | — |
-| Is expected | Expected behaviour, no change needed | — |
-| Jira ticket created | Work is tracked in Jira | Ticket link |
-| Low priority | Valid, but not now | — |
-| Will not pick up | We won't do this | Reason (required) |
-| Mistakenly assigned | Not this person's area | The right owner. The actionable moves to them and goes back to **Open**; the history keeps the reassignment. |
+| Open | We have not decided what to do yet (default). | — |
+| Is expected | The experience is working as intended; no change is needed. | — |
+| Jira ticket created | The work is being tracked. | Ticket link |
+| Low priority | The need is valid, but not a priority right now. | — |
+| Will not pick up | We have decided not to take this on. | Reason (required) |
+| Mistakenly assigned | This belongs with another team. | Choose the right owner. The actionable moves to them and returns to **Open**; its history records the reassignment. |
 
-Every change records who made it and when (see *History* under the actionable).
+Every decision records who made it and when. Use the *History* under an actionable to understand how its status or ownership changed.
 
-### Owners: routed like Felix
+## Make ownership clear
 
-Each actionable is routed to a **pod**, exactly the way Felix (`amberhq/fix-it-felix`) routes #tech-problems.
-`data/routing.json` is a copy of Felix's `ROUTE_GROUP_MAP` (pod → Slack user group) and its routing rules:
+Actionables are routed to the product area best placed to assess them. The current routing reflects the team's ownership areas:
 
-| Pod | Owns |
+| Product area | Typical topics |
 | --- | --- |
-| Website team (`pod1`) | Website, search, property and listing pages, booking and payment flow |
-| CRM & dialer team (`pod2`) | CRM, leads, agent tools, dialer and calls, attribution |
-| Partner & whitelabel team (`pod3`) | Partner / flex dashboard, whitelabel, sub-partners |
-| App team, AI team, China team | Mobile apps; chatbot / AI platform; China cluster |
-| PLG team (`podPLG`) | Referrals, Amber+, pre-arrival and post-booking journeys |
-| QA (`qa`) | Supply and content requests (Felix's interim owner) |
-| No tech owner (`none`) | Research, marketing, sales-process and partnership-deal items: nobody is tagged |
+| Website team | Website, search, property and listing pages, booking, and payment |
+| CRM & dialer team | CRM, leads, agent tools, dialer and calls, attribution |
+| Partner & whitelabel team | Partner and flex dashboards, whitelabel, sub-partners |
+| App team | Mobile apps |
+| AI team | Chatbot and AI platform |
+| China team | China cluster |
+| PLG team | Referrals, Amber+, pre-arrival, and post-booking journeys |
+| QA | Supply and content requests (interim owner) |
+| No product-area owner | Research, marketing, sales-process, and partnership-deal items; nobody is tagged by default |
 
-The route of each actionable is stored as `route` in `data/interviews.json`. Like Felix, an item no pod clearly owns
-gets **no tag** rather than a guess. "Mistakenly assigned" lets anyone move an actionable to the right pod. If Felix's
-groups change, update `data/routing.json` from Felix's `slack-bot/app.py`.
+When ownership is unclear, the item is left unassigned rather than sent to a team by guesswork. Anyone can use **Mistakenly assigned** to move an actionable to the right owner. The current routes and Slack groups are maintained in `data/routing.json`, based on Felix's `amberhq/fix-it-felix` routing; update them when team ownership changes.
 
-### Who is "me"?
+## Prototype boundaries
 
-There's no login. The first time someone comments or changes a status, they pick their name, and the browser
-remembers it. Anyone can type any name, so treat this as a prototype only.
+This is a way to explore a better feedback-to-decision workflow, not yet a complete source of truth:
 
-## Run locally
+- Interview content is a manually refreshed snapshot; new Slack activity does not appear automatically.
+- There is no sign-in. The first time someone comments or changes a status, they choose a name, which the browser remembers. Anyone can enter any name.
+- Without a shared database, changes are local to the browser. Locally, statuses and comments are saved to `.data/store.json` and shared by browsers on the same machine. On a hosted deployment without Redis, each viewer's changes stay in their own browser.
+- The data includes student names and CRM lead links. Restrict access to the product team; on Vercel, enable **Vercel Authentication** under Settings → Deployment Protection.
+
+## Keeping interviews current
+
+Until an automated workflow exists, refresh `data/interviews.json` by asking Claude (with the Slack connector) to re-read `#product-user-interviews` and regenerate the file in the shape defined by `lib/types.ts`. Keep existing IDs so saved decisions and comments remain connected. Actionable IDs look like `<interview id>-a1`.
+
+## What a fuller version could add
+
+A future version could make this a more timely and dependable part of the product team's research workflow:
+
+1. **Keep interview records current.** Check the interview channel about every 15 minutes, pick up new conversations and thread replies, and associate them with the right interview. A thread—not a meeting link—identifies a conversation because meeting links can be reused.
+2. **Capture evolving learning.** Revisit a thread for about seven days after the call, since calls can move and useful insights may arrive later. Refresh the analysis when new replies add insights.
+3. **Connect related feedback.** Match standalone insight posts to interviews using the participant, lead link, and date; send uncertain matches for review rather than silently attaching them to the wrong conversation.
+4. **Turn conversations into usable insights.** Use Claude to produce the same structured interview record used by the prototype.
+5. **Close the loop with owners.** When an interview surfaces actionables, reply in its Slack thread with each owner tagged once. If there are no actionables, acknowledge the interview with a ✅ reaction.
+6. **Make decisions attributable.** Add staff sign-in and shared data storage so the team can see who made decisions and access the same current state.
+
+## For maintainers
+
+### Run locally
 
 ```bash
 npm install
 npm run dev        # http://localhost:3010
 ```
 
-Locally, statuses and comments are saved to `.data/store.json`, so every browser on your machine shares them.
-
-## Deploy on Vercel
+### Deploy on Vercel
 
 1. In Vercel, **Add New → Project**, import this repo. No settings to change (framework: Next.js).
-2. In the project, open **Storage → Create Database → Upstash for Redis** (free tier is fine) and connect it to the
-   project. Vercel adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` for you.
+2. In the project, open **Storage → Create Database → Upstash for Redis** (free tier is fine) and connect it to the project. Vercel adds `KV_REST_API_URL` and `KV_REST_API_TOKEN` for you.
 3. Redeploy. The yellow "saved in this browser only" banner disappears once the database is connected.
 
-Without step 2 the app still works, but each viewer's statuses and comments stay in their own browser.
-
-Statuses and comments live in two Redis hashes, `ii:actionables` (actionable id → state) and `ii:comments`
-(comment id → comment).
-
-**Access:** the data includes student names and CRM lead links. Turn on **Vercel Authentication** (Settings →
-Deployment Protection) or share the URL only inside the product team.
-
-## Refreshing the interviews
-
-`data/interviews.json` is the whole dataset. To refresh it until the bot exists, ask Claude (with the Slack
-connector) to re-read `#product-user-interviews` and regenerate the file in the same shape (`lib/types.ts`), keeping
-existing `id`s so saved statuses and comments stay attached. Actionable ids look like `<interview id>-a1`.
-
-## What the real version adds
-
-1. **Slack bot (read-only on the channel + post in threads).** Every ~15 minutes it reads new top-level messages and
-   thread replies in `#product-user-interviews`. A message with a meet link and "interview with" starts an
-   interview record keyed by the thread (meet links are reused, so never key on the link).
-2. **Watch window.** Each interview thread is watched for ~7 days after the call time (calls get moved), and the
-   extraction re-runs whenever a new reply looks like insights. Top-level insight posts are matched to their interview
-   by name, lead link and date; unsure matches go to a "needs review" list.
-3. **Claude extraction** produces the same JSON as `data/interviews.json` (prompt in this repo's history).
-4. **Notification.** When an interview first gets actionables, the bot replies in the thread tagging each owner once
-   (see the preview on each interview page). No actionables → only a ✅ reaction.
-5. **Login** behind the Amber staff auth gateway, and a database instead of Redis.
+Statuses and comments live in two Redis hashes, `ii:actionables` (actionable id → state) and `ii:comments` (comment id → comment).
