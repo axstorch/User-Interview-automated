@@ -1,6 +1,6 @@
 # Interview Insights (prototype)
 
-Turn user interviews into clear product decisions. Interview Insights brings research, customer needs, and follow-up decisions into one place—so the team can spot recurring problems, understand who they affect, and make sure useful feedback has an owner.
+Turn user interviews into clear product decisions. Interview Insights brings research, customer needs, and follow-up decisions into one place, so the team can spot recurring problems, understand who they affect, and make sure useful feedback has an owner.
 
 ## Why it exists
 
