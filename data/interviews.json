@@ -356,7 +356,8 @@
           "priority": "medium",
           "rationale": "The group's same-flat need was tracked only verbally across three separate bookings.",
           "inferred": false,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "pod2"
         },
         {
           "id": "1791280138.905159-a2",
@@ -365,7 +366,8 @@
           "priority": "medium",
           "rationale": "A verbal same-flat request is easy to lose when a group books as separate leads.",
           "inferred": true,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "pod2"
         },
         {
           "id": "1791280138.905159-a3",
@@ -374,7 +376,8 @@
           "priority": "high",
           "rationale": "Both Amber+ calls hit an anti-spam line, so the offer never reached her.",
           "inferred": true,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "pod2"
         },
         {
           "id": "1791280138.905159-a4",
@@ -383,7 +386,8 @@
           "priority": "medium",
           "rationale": "She skipped the referral because it felt like taking advantage of friends.",
           "inferred": false,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "podPLG"
         },
         {
           "id": "1791280138.905159-a5",
@@ -392,7 +396,8 @@
           "priority": "medium",
           "rationale": "She came from an Instagram reel but the source field was blank.",
           "inferred": true,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "pod2"
         },
         {
           "id": "1791280138.905159-a6",
@@ -401,7 +406,8 @@
           "priority": "low",
           "rationale": "Shreyas named this as the next interview to understand the payment problem.",
           "inferred": false,
-          "sourceTs": "1791802117.599329"
+          "sourceTs": "1791802117.599329",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -632,7 +638,8 @@
           "priority": "high",
           "rationale": "Many international students don't know PBSA platforms exist and book under results-day pressure.",
           "inferred": false,
-          "sourceTs": "1791457559.028849"
+          "sourceTs": "1791457559.028849",
+          "route": "none"
         },
         {
           "id": "1791279504.440339-a2",
@@ -641,7 +648,8 @@
           "priority": "high",
           "rationale": "Micro-location was the trigger for her instant booking.",
           "inferred": false,
-          "sourceTs": "1791457559.028849"
+          "sourceTs": "1791457559.028849",
+          "route": "pod1"
         },
         {
           "id": "1791279504.440339-a3",
@@ -650,7 +658,8 @@
           "priority": "medium",
           "rationale": "Her mother chose the property.",
           "inferred": false,
-          "sourceTs": "1791457559.028849"
+          "sourceTs": "1791457559.028849",
+          "route": "qa"
         },
         {
           "id": "1791279504.440339-a4",
@@ -659,7 +668,8 @@
           "priority": "medium",
           "rationale": "She took an Amber+ service but could not recall how she learned of it.",
           "inferred": false,
-          "sourceTs": "1791453730.203249"
+          "sourceTs": "1791453730.203249",
+          "route": "none"
         },
         {
           "id": "1791279504.440339-a5",
@@ -668,7 +678,8 @@
           "priority": "high",
           "rationale": "Reddit is where students talk, current threads about Amber are mixed, and LLMs lean on Reddit.",
           "inferred": false,
-          "sourceTs": "1791465161.446119"
+          "sourceTs": "1791465161.446119",
+          "route": "podPLG"
         },
         {
           "id": "1791279504.440339-a6",
@@ -677,7 +688,8 @@
           "priority": "medium",
           "rationale": "A mis-selected payment plan forced an application reset.",
           "inferred": true,
-          "sourceTs": "1791280743.569859"
+          "sourceTs": "1791280743.569859",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -905,7 +917,8 @@
           "priority": "high",
           "rationale": "Card declines blocked her first payment and she noticed UPI was missing.",
           "inferred": true,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "pod1"
         },
         {
           "id": "1790672443.519839-a2",
@@ -914,7 +927,8 @@
           "priority": "high",
           "rationale": "It exposes credentials to anyone viewing that screen.",
           "inferred": false,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "pod2"
         },
         {
           "id": "1790672443.519839-a3",
@@ -923,7 +937,8 @@
           "priority": "high",
           "rationale": "She received a 'final call' email after paying.",
           "inferred": true,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "pod2"
         },
         {
           "id": "1790672443.519839-a4",
@@ -932,7 +947,8 @@
           "priority": "medium",
           "rationale": "Reconciliation and move-in messages run off wrong dates if this is common.",
           "inferred": false,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "pod2"
         },
         {
           "id": "1790672443.519839-a5",
@@ -941,7 +957,8 @@
           "priority": "medium",
           "rationale": "Shikhar and Harshal agreed to test how relevant on-site comparison is.",
           "inferred": false,
-          "sourceTs": "1790748272.734449"
+          "sourceTs": "1790748272.734449",
+          "route": "none"
         },
         {
           "id": "1790672443.519839-a6",
@@ -950,7 +967,8 @@
           "priority": "medium",
           "rationale": "She compared rooms by opening many tabs on two devices.",
           "inferred": true,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "pod1"
         },
         {
           "id": "1790672443.519839-a7",
@@ -959,7 +977,8 @@
           "priority": "low",
           "rationale": "She received two free SIMs on arrival.",
           "inferred": false,
-          "sourceTs": "1790692987.080089"
+          "sourceTs": "1790692987.080089",
+          "route": "podPLG"
         },
         {
           "id": "1790672443.519839-a8",
@@ -968,7 +987,8 @@
           "priority": "low",
           "rationale": "She didn't know about the welcome pack, and properties don't share this data today.",
           "inferred": true,
-          "sourceTs": "1790845668.025669"
+          "sourceTs": "1790845668.025669",
+          "route": "qa"
         },
         {
           "id": "1790672443.519839-a9",
@@ -977,7 +997,8 @@
           "priority": "low",
           "rationale": "Gautam asked for more Amber+ coverage after this interview.",
           "inferred": false,
-          "sourceTs": "1790849748.044439"
+          "sourceTs": "1790849748.044439",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -1153,7 +1174,8 @@
           "priority": "medium",
           "rationale": "Occupancy type drove her choice and data is limited.",
           "inferred": false,
-          "sourceTs": "1787557022.104979"
+          "sourceTs": "1787557022.104979",
+          "route": "qa"
         },
         {
           "id": "1787553088.250749-a2",
@@ -1162,7 +1184,8 @@
           "priority": "medium",
           "rationale": "Walking distance to university was one of her three criteria.",
           "inferred": false,
-          "sourceTs": "1787557022.104979"
+          "sourceTs": "1787557022.104979",
+          "route": "pod1"
         },
         {
           "id": "1787553088.250749-a3",
@@ -1171,7 +1194,8 @@
           "priority": "low",
           "rationale": "This call yielded little because the student was passive.",
           "inferred": true,
-          "sourceTs": "1787553088.250749"
+          "sourceTs": "1787553088.250749",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -1342,7 +1366,8 @@
           "priority": "high",
           "rationale": "Safety was her first filter and listings carry no structured safety data.",
           "inferred": true,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "pod1"
         },
         {
           "id": "1787552471.835599-a2",
@@ -1351,7 +1376,8 @@
           "priority": "medium",
           "rationale": "She only came to private platforms after the university fell through.",
           "inferred": true,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "none"
         },
         {
           "id": "1787552471.835599-a3",
@@ -1360,7 +1386,8 @@
           "priority": "medium",
           "rationale": "Part of the apparent slow burn may be university waiting the CRM never sees.",
           "inferred": false,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "none"
         },
         {
           "id": "1787552471.835599-a4",
@@ -1369,7 +1396,8 @@
           "priority": "medium",
           "rationale": "She kept going back to step one when reviews broke the picture of the room.",
           "inferred": true,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "pod1"
         },
         {
           "id": "1787552471.835599-a5",
@@ -1378,7 +1406,8 @@
           "priority": "low",
           "rationale": "She had to research online to decide on pillows and a duvet.",
           "inferred": true,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "pod1"
         },
         {
           "id": "1787552471.835599-a6",
@@ -1387,7 +1416,8 @@
           "priority": "medium",
           "rationale": "These were all still unplanned for her.",
           "inferred": true,
-          "sourceTs": "1787552482.384019"
+          "sourceTs": "1787552482.384019",
+          "route": "podPLG"
         }
       ],
       "gaps": [
@@ -1572,7 +1602,8 @@
           "priority": "high",
           "rationale": "He only discovered the fee at payment and felt it wasn't communicated.",
           "inferred": true,
-          "sourceTs": "1785232199.713089"
+          "sourceTs": "1785232199.713089",
+          "route": "pod1"
         },
         {
           "id": "1785225859.393959-a2",
@@ -1581,7 +1612,8 @@
           "priority": "medium",
           "rationale": "Gautam's first takeaway was the question of what to bring.",
           "inferred": true,
-          "sourceTs": "1785231764.926569"
+          "sourceTs": "1785231764.926569",
+          "route": "podPLG"
         },
         {
           "id": "1785225859.393959-a3",
@@ -1590,7 +1622,8 @@
           "priority": "low",
           "rationale": "He asked how to save money and was keen on Revolut.",
           "inferred": true,
-          "sourceTs": "1785231764.926569"
+          "sourceTs": "1785231764.926569",
+          "route": "podPLG"
         },
         {
           "id": "1785225859.393959-a4",
@@ -1599,7 +1632,8 @@
           "priority": "low",
           "rationale": "Seeing one room left made him decide.",
           "inferred": true,
-          "sourceTs": "1785232199.713089"
+          "sourceTs": "1785232199.713089",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -1693,7 +1727,8 @@
           "priority": "medium",
           "rationale": "Only the first insight is visible in this channel.",
           "inferred": true,
-          "sourceTs": "1784548935.350399"
+          "sourceTs": "1784548935.350399",
+          "route": "none"
         },
         {
           "id": "1784548935.350399-a2",
@@ -1702,7 +1737,8 @@
           "priority": "low",
           "rationale": "Bournemouth controls which options each student segment sees.",
           "inferred": true,
-          "sourceTs": "1784548935.350399"
+          "sourceTs": "1784548935.350399",
+          "route": "pod3"
         }
       ],
       "gaps": [
@@ -1882,7 +1918,8 @@
           "priority": "high",
           "rationale": "Guarantor requirements shaped her property choice.",
           "inferred": true,
-          "sourceTs": "1784183080.037559"
+          "sourceTs": "1784183080.037559",
+          "route": "pod1"
         },
         {
           "id": "1783868457.101209-a2",
@@ -1891,7 +1928,8 @@
           "priority": "medium",
           "rationale": "Campus uncertainty made distance hard to judge.",
           "inferred": true,
-          "sourceTs": "1784183080.037559"
+          "sourceTs": "1784183080.037559",
+          "route": "pod1"
         },
         {
           "id": "1783868457.101209-a3",
@@ -1900,7 +1938,8 @@
           "priority": "medium",
           "rationale": "Duplicate emails led her to unsubscribe.",
           "inferred": true,
-          "sourceTs": "1784190678.231489"
+          "sourceTs": "1784190678.231489",
+          "route": "pod2"
         },
         {
           "id": "1783868457.101209-a4",
@@ -1909,7 +1948,8 @@
           "priority": "medium",
           "rationale": "She declined calls and preferred text.",
           "inferred": true,
-          "sourceTs": "1784183080.037559"
+          "sourceTs": "1784183080.037559",
+          "route": "pod2"
         },
         {
           "id": "1783868457.101209-a5",
@@ -1918,7 +1958,8 @@
           "priority": "medium",
           "rationale": "Both were in her selection criteria.",
           "inferred": true,
-          "sourceTs": "1784183080.037559"
+          "sourceTs": "1784183080.037559",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -2160,7 +2201,8 @@
           "priority": "high",
           "rationale": "A week of engagement was invisible, so funnel analyses undercount real activity.",
           "inferred": true,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod2"
         },
         {
           "id": "1783576069.936119-a2",
@@ -2169,7 +2211,8 @@
           "priority": "high",
           "rationale": "His consultancy tried to claim a booking he found himself.",
           "inferred": false,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod2"
         },
         {
           "id": "1783576069.936119-a3",
@@ -2178,7 +2221,8 @@
           "priority": "high",
           "rationale": "He asked for it to plan what to bring.",
           "inferred": false,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod1"
         },
         {
           "id": "1783576069.936119-a4",
@@ -2187,7 +2231,8 @@
           "priority": "medium",
           "rationale": "The gap between 3.6 and 4.5+ hurt his trust.",
           "inferred": true,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod1"
         },
         {
           "id": "1783576069.936119-a5",
@@ -2196,7 +2241,8 @@
           "priority": "medium",
           "rationale": "He would have planned around upcoming discounts.",
           "inferred": false,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod1"
         },
         {
           "id": "1783576069.936119-a6",
@@ -2205,7 +2251,8 @@
           "priority": "medium",
           "rationale": "Agent relationships are a strong lever that isn't measured because it lives on WhatsApp.",
           "inferred": false,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "pod2"
         },
         {
           "id": "1783576069.936119-a7",
@@ -2214,7 +2261,8 @@
           "priority": "low",
           "rationale": "His studio choice was driven by privacy and family advice, not cost.",
           "inferred": false,
-          "sourceTs": "1783599581.011589"
+          "sourceTs": "1783599581.011589",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -2400,7 +2448,8 @@
           "priority": "high",
           "rationale": "He is unsure what he will get and when.",
           "inferred": false,
-          "sourceTs": "1783515601.471029"
+          "sourceTs": "1783515601.471029",
+          "route": "none"
         },
         {
           "id": "1783435771.092559-a2",
@@ -2409,7 +2458,8 @@
           "priority": "medium",
           "rationale": "Even an informed student did not know the terms.",
           "inferred": true,
-          "sourceTs": "1783515601.471029"
+          "sourceTs": "1783515601.471029",
+          "route": "pod1"
         },
         {
           "id": "1783435771.092559-a3",
@@ -2418,7 +2468,8 @@
           "priority": "high",
           "rationale": "Five failed card payments nearly blocked the booking.",
           "inferred": true,
-          "sourceTs": "1783436287.949389"
+          "sourceTs": "1783436287.949389",
+          "route": "pod1"
         },
         {
           "id": "1783435771.092559-a4",
@@ -2427,7 +2478,8 @@
           "priority": "medium",
           "rationale": "He said not every student needs a full year.",
           "inferred": false,
-          "sourceTs": "1783515601.471029"
+          "sourceTs": "1783515601.471029",
+          "route": "none"
         },
         {
           "id": "1783435771.092559-a5",
@@ -2436,7 +2488,8 @@
           "priority": "medium",
           "rationale": "YouTube creators were his discovery and trust source.",
           "inferred": true,
-          "sourceTs": "1783515601.471029"
+          "sourceTs": "1783515601.471029",
+          "route": "none"
         },
         {
           "id": "1783435771.092559-a6",
@@ -2445,7 +2498,8 @@
           "priority": "low",
           "rationale": "A floor mix-up caused confusion with the agent.",
           "inferred": true,
-          "sourceTs": "1783515601.471029"
+          "sourceTs": "1783515601.471029",
+          "route": "pod2"
         }
       ],
       "gaps": [
@@ -2658,7 +2712,8 @@
           "priority": "high",
           "rationale": "He asked for a tour only because he never found the videos.",
           "inferred": false,
-          "sourceTs": "1783064567.388999"
+          "sourceTs": "1783064567.388999",
+          "route": "pod1"
         },
         {
           "id": "1782987345.540399-a2",
@@ -2667,7 +2722,8 @@
           "priority": "medium",
           "rationale": "This institutional channel brought him to Amber.",
           "inferred": false,
-          "sourceTs": "1783064567.388999"
+          "sourceTs": "1783064567.388999",
+          "route": "pod2"
         },
         {
           "id": "1782987345.540399-a3",
@@ -2676,7 +2732,8 @@
           "priority": "medium",
           "rationale": "He thought he was dealing with the provider and said knowing earlier would help.",
           "inferred": true,
-          "sourceTs": "1783064567.388999"
+          "sourceTs": "1783064567.388999",
+          "route": "pod1"
         },
         {
           "id": "1782987345.540399-a4",
@@ -2685,7 +2742,8 @@
           "priority": "medium",
           "rationale": "Gautam proposed it after hearing his 'I'll figure it out' stance.",
           "inferred": false,
-          "sourceTs": "1782992558.789039"
+          "sourceTs": "1782992558.789039",
+          "route": "podPLG"
         },
         {
           "id": "1782987345.540399-a5",
@@ -2694,7 +2752,8 @@
           "priority": "medium",
           "rationale": "He only knew the provider's promotion, not Amber's.",
           "inferred": true,
-          "sourceTs": "1783064567.388999"
+          "sourceTs": "1783064567.388999",
+          "route": "none"
         },
         {
           "id": "1782987345.540399-a6",
@@ -2703,7 +2762,8 @@
           "priority": "medium",
           "rationale": "His fast, network-free journey differs from the mostly Indian sample.",
           "inferred": false,
-          "sourceTs": "1783064567.388999"
+          "sourceTs": "1783064567.388999",
+          "route": "none"
         },
         {
           "id": "1782987345.540399-a7",
@@ -2712,7 +2772,8 @@
           "priority": "low",
           "rationale": "His Turkish number was saved with +44.",
           "inferred": false,
-          "sourceTs": "1782988035.914629"
+          "sourceTs": "1782988035.914629",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -2949,7 +3010,8 @@
           "priority": "high",
           "rationale": "She would likely have chosen Amber had she known about it.",
           "inferred": false,
-          "sourceTs": "1782982959.777229"
+          "sourceTs": "1782982959.777229",
+          "route": "pod1"
         },
         {
           "id": "1782906158.968949-a2",
@@ -2958,7 +3020,8 @@
           "priority": "high",
           "rationale": "She asked for a brochure as soon as she heard about it.",
           "inferred": false,
-          "sourceTs": "1782982959.777229"
+          "sourceTs": "1782982959.777229",
+          "route": "podPLG"
         },
         {
           "id": "1782906158.968949-a3",
@@ -2967,7 +3030,8 @@
           "priority": "medium",
           "rationale": "Duplicate leads caused several agents to call her.",
           "inferred": false,
-          "sourceTs": "1782912313.609659"
+          "sourceTs": "1782912313.609659",
+          "route": "pod2"
         },
         {
           "id": "1782906158.968949-a4",
@@ -2976,7 +3040,8 @@
           "priority": "medium",
           "rationale": "Amber's chance to win her lasted hours, not days.",
           "inferred": false,
-          "sourceTs": "1782982959.777229"
+          "sourceTs": "1782982959.777229",
+          "route": "pod2"
         },
         {
           "id": "1782906158.968949-a5",
@@ -2985,7 +3050,8 @@
           "priority": "medium",
           "rationale": "She found this helpful on uhomes and struggled on listings.",
           "inferred": true,
-          "sourceTs": "1782912038.145669"
+          "sourceTs": "1782912038.145669",
+          "route": "pod1"
         },
         {
           "id": "1782906158.968949-a6",
@@ -2994,7 +3060,8 @@
           "priority": "medium",
           "rationale": "Student cohorts organise there before arrival.",
           "inferred": false,
-          "sourceTs": "1782982959.777229"
+          "sourceTs": "1782982959.777229",
+          "route": "none"
         },
         {
           "id": "1782906158.968949-a7",
@@ -3003,7 +3070,8 @@
           "priority": "medium",
           "rationale": "Reddit was her trust source for safety.",
           "inferred": true,
-          "sourceTs": "1782982959.777229"
+          "sourceTs": "1782982959.777229",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -3273,7 +3341,8 @@
           "priority": "high",
           "rationale": "This was her single concrete ask after the property failed.",
           "inferred": false,
-          "sourceTs": "1779364068.725619"
+          "sourceTs": "1779364068.725619",
+          "route": "podPLG"
         },
         {
           "id": "1779179475.734509-a2",
@@ -3282,7 +3351,8 @@
           "priority": "high",
           "rationale": "A channel markup would be a trust problem beyond this provider.",
           "inferred": false,
-          "sourceTs": "1779432740.224269"
+          "sourceTs": "1779432740.224269",
+          "route": "qa"
         },
         {
           "id": "1779179475.734509-a3",
@@ -3291,7 +3361,8 @@
           "priority": "high",
           "rationale": "The listing was false and the provider's reputation was already known.",
           "inferred": true,
-          "sourceTs": "1779364068.725619"
+          "sourceTs": "1779364068.725619",
+          "route": "qa"
         },
         {
           "id": "1779179475.734509-a4",
@@ -3300,7 +3371,8 @@
           "priority": "medium",
           "rationale": "Harshal flagged it as a lever because other channels need in-person inspection.",
           "inferred": false,
-          "sourceTs": "1779432740.224269"
+          "sourceTs": "1779432740.224269",
+          "route": "none"
         },
         {
           "id": "1779179475.734509-a5",
@@ -3309,7 +3381,8 @@
           "priority": "low",
           "rationale": "Price differences by booking date may explain part of the gap.",
           "inferred": true,
-          "sourceTs": "1779432740.224269"
+          "sourceTs": "1779432740.224269",
+          "route": "pod1"
         },
         {
           "id": "1779179475.734509-a6",
@@ -3318,7 +3391,8 @@
           "priority": "low",
           "rationale": "Gautam asked for it to benchmark Amber+.",
           "inferred": false,
-          "sourceTs": "1779438555.977359"
+          "sourceTs": "1779438555.977359",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -3548,7 +3622,8 @@
           "priority": "high",
           "rationale": "His school's endorsement decided which platform he used.",
           "inferred": true,
-          "sourceTs": "1779171208.342399"
+          "sourceTs": "1779171208.342399",
+          "route": "none"
         },
         {
           "id": "1779095958.125489-a2",
@@ -3557,7 +3632,8 @@
           "priority": "medium",
           "rationale": "He was scammed within 30 minutes of landing.",
           "inferred": false,
-          "sourceTs": "1779171208.342399"
+          "sourceTs": "1779171208.342399",
+          "route": "podPLG"
         },
         {
           "id": "1779095958.125489-a3",
@@ -3566,7 +3642,8 @@
           "priority": "medium",
           "rationale": "His group of three gave up after three months.",
           "inferred": true,
-          "sourceTs": "1779171208.342399"
+          "sourceTs": "1779171208.342399",
+          "route": "none"
         },
         {
           "id": "1779095958.125489-a4",
@@ -3575,7 +3652,8 @@
           "priority": "medium",
           "rationale": "Jamboree already covered visa, loan, flights and a checklist for him.",
           "inferred": true,
-          "sourceTs": "1779171208.342399"
+          "sourceTs": "1779171208.342399",
+          "route": "podPLG"
         },
         {
           "id": "1779095958.125489-a5",
@@ -3584,7 +3662,8 @@
           "priority": "low",
           "rationale": "YouTube creators were his main pre-decision source.",
           "inferred": false,
-          "sourceTs": "1779171208.342399"
+          "sourceTs": "1779171208.342399",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -3787,7 +3866,8 @@
           "priority": "high",
           "rationale": "She had all three needs and no idea Amber could help.",
           "inferred": true,
-          "sourceTs": "1778234516.369229"
+          "sourceTs": "1778234516.369229",
+          "route": "podPLG"
         },
         {
           "id": "1778143552.879759-a2",
@@ -3796,7 +3876,8 @@
           "priority": "medium",
           "rationale": "A peer channel is already filling the Amber+ role for her.",
           "inferred": true,
-          "sourceTs": "1778234516.369229"
+          "sourceTs": "1778234516.369229",
+          "route": "podPLG"
         },
         {
           "id": "1778143552.879759-a3",
@@ -3805,7 +3886,8 @@
           "priority": "medium",
           "rationale": "She was interested in both but had never heard of them.",
           "inferred": true,
-          "sourceTs": "1778234516.369229"
+          "sourceTs": "1778234516.369229",
+          "route": "podPLG"
         },
         {
           "id": "1778143552.879759-a4",
@@ -3814,7 +3896,8 @@
           "priority": "medium",
           "rationale": "Her father did most of the browsing.",
           "inferred": true,
-          "sourceTs": "1778234516.369229"
+          "sourceTs": "1778234516.369229",
+          "route": "pod1"
         },
         {
           "id": "1778143552.879759-a5",
@@ -3823,7 +3906,8 @@
           "priority": "medium",
           "rationale": "Shreyas was unsure how to attribute her.",
           "inferred": true,
-          "sourceTs": "1778233748.349129"
+          "sourceTs": "1778233748.349129",
+          "route": "pod2"
         },
         {
           "id": "1778143552.879759-a6",
@@ -3832,7 +3916,8 @@
           "priority": "medium",
           "rationale": "Her journey ran on personal phones and wasn't recorded.",
           "inferred": true,
-          "sourceTs": "1778145227.023159"
+          "sourceTs": "1778145227.023159",
+          "route": "pod2"
         }
       ],
       "gaps": [
@@ -4092,7 +4177,8 @@
           "priority": "high",
           "rationale": "She suggested it unprompted and it drove her need for a viewing.",
           "inferred": false,
-          "sourceTs": "1778232815.536029"
+          "sourceTs": "1778232815.536029",
+          "route": "pod1"
         },
         {
           "id": "1778148677.573399-a2",
@@ -4101,7 +4187,8 @@
           "priority": "high",
           "rationale": "Some listings had only one photo.",
           "inferred": true,
-          "sourceTs": "1778232815.536029"
+          "sourceTs": "1778232815.536029",
+          "route": "qa"
         },
         {
           "id": "1778148677.573399-a3",
@@ -4110,7 +4197,8 @@
           "priority": "medium",
           "rationale": "A five-minute callback converted her.",
           "inferred": true,
-          "sourceTs": "1778232815.536029"
+          "sourceTs": "1778232815.536029",
+          "route": "none"
         },
         {
           "id": "1778148677.573399-a4",
@@ -4119,7 +4207,8 @@
           "priority": "medium",
           "rationale": "A viewing was her first request and her conversion trigger.",
           "inferred": true,
-          "sourceTs": "1778148982.331499"
+          "sourceTs": "1778148982.331499",
+          "route": "pod1"
         },
         {
           "id": "1778148677.573399-a5",
@@ -4128,7 +4217,8 @@
           "priority": "low",
           "rationale": "She sees a competitor there regularly.",
           "inferred": false,
-          "sourceTs": "1778232815.536029"
+          "sourceTs": "1778232815.536029",
+          "route": "none"
         },
         {
           "id": "1778148677.573399-a6",
@@ -4137,7 +4227,8 @@
           "priority": "low",
           "rationale": "She sends screenshots to her parents for input.",
           "inferred": true,
-          "sourceTs": "1778232815.536029"
+          "sourceTs": "1778232815.536029",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -4311,7 +4402,8 @@
           "priority": "high",
           "rationale": "The CRM named a referrer the student had never heard of.",
           "inferred": true,
-          "sourceTs": "1778160251.837269"
+          "sourceTs": "1778160251.837269",
+          "route": "pod2"
         },
         {
           "id": "1778140280.967779-a2",
@@ -4320,7 +4412,8 @@
           "priority": "medium",
           "rationale": "Shreyas could not find how agent referrals and bonuses work.",
           "inferred": false,
-          "sourceTs": "1778158433.487209"
+          "sourceTs": "1778158433.487209",
+          "route": "none"
         },
         {
           "id": "1778140280.967779-a3",
@@ -4329,7 +4422,8 @@
           "priority": "medium",
           "rationale": "His booking moved as soon as the loan was sanctioned.",
           "inferred": true,
-          "sourceTs": "1778158182.336579"
+          "sourceTs": "1778158182.336579",
+          "route": "pod2"
         },
         {
           "id": "1778140280.967779-a4",
@@ -4338,7 +4432,8 @@
           "priority": "medium",
           "rationale": "Deepesh asked for it as a follow-up.",
           "inferred": false,
-          "sourceTs": "1778141849.564809"
+          "sourceTs": "1778141849.564809",
+          "route": "pod1"
         },
         {
           "id": "1778140280.967779-a5",
@@ -4347,7 +4442,8 @@
           "priority": "medium",
           "rationale": "Deepesh asked for a consolidated RCA and persona analysis.",
           "inferred": false,
-          "sourceTs": "1778141849.564809"
+          "sourceTs": "1778141849.564809",
+          "route": "none"
         }
       ],
       "gaps": [
@@ -4513,7 +4609,8 @@
           "priority": "high",
           "rationale": "Two months without a viewing lost her to a private rental.",
           "inferred": true,
-          "sourceTs": "1775636345.553089"
+          "sourceTs": "1775636345.553089",
+          "route": "none"
         },
         {
           "id": "1775635733.194949-a2",
@@ -4522,7 +4619,8 @@
           "priority": "medium",
           "rationale": "Her university portal did this and it set her expectations.",
           "inferred": true,
-          "sourceTs": "1775741341.076739"
+          "sourceTs": "1775741341.076739",
+          "route": "podPLG"
         },
         {
           "id": "1775635733.194949-a3",
@@ -4531,7 +4629,8 @@
           "priority": "medium",
           "rationale": "She came to beat price inflation.",
           "inferred": true,
-          "sourceTs": "1775741341.076739"
+          "sourceTs": "1775741341.076739",
+          "route": "none"
         },
         {
           "id": "1775635733.194949-a4",
@@ -4540,7 +4639,8 @@
           "priority": "medium",
           "rationale": "She drops tools that take too many steps and lives on WhatsApp.",
           "inferred": true,
-          "sourceTs": "1775741341.076739"
+          "sourceTs": "1775741341.076739",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -4783,7 +4883,8 @@
           "priority": "medium",
           "rationale": "Near-identical ratings gave him nothing to compare.",
           "inferred": true,
-          "sourceTs": "1775394523.240029"
+          "sourceTs": "1775394523.240029",
+          "route": "pod1"
         },
         {
           "id": "1775378391.470419-a2",
@@ -4792,7 +4893,8 @@
           "priority": "medium",
           "rationale": "His group compared properties by passing links on WhatsApp.",
           "inferred": true,
-          "sourceTs": "1775394523.240029"
+          "sourceTs": "1775394523.240029",
+          "route": "pod1"
         },
         {
           "id": "1775378391.470419-a3",
@@ -4801,7 +4903,8 @@
           "priority": "medium",
           "rationale": "He wants customizable kits and found kits on Instagram, not Amber.",
           "inferred": true,
-          "sourceTs": "1775393153.913979"
+          "sourceTs": "1775393153.913979",
+          "route": "podPLG"
         },
         {
           "id": "1775378391.470419-a4",
@@ -4810,7 +4913,8 @@
           "priority": "low",
           "rationale": "Admin tasks are his main stress.",
           "inferred": true,
-          "sourceTs": "1775393153.913979"
+          "sourceTs": "1775393153.913979",
+          "route": "podPLG"
         },
         {
           "id": "1775378391.470419-a5",
@@ -4819,7 +4923,8 @@
           "priority": "low",
           "rationale": "Meeting people from different backgrounds mattered to him.",
           "inferred": true,
-          "sourceTs": "1775394523.240029"
+          "sourceTs": "1775394523.240029",
+          "route": "pod1"
         }
       ],
       "gaps": [
@@ -5004,7 +5109,8 @@
           "priority": "high",
           "rationale": "The guarantor rule was his major blocker.",
           "inferred": false,
-          "sourceTs": "1775461997.047839"
+          "sourceTs": "1775461997.047839",
+          "route": "podPLG"
         },
         {
           "id": "1775145205.077179-a2",
@@ -5013,7 +5119,8 @@
           "priority": "high",
           "rationale": "He couldn't reach Amber on move-in day.",
           "inferred": false,
-          "sourceTs": "1775461997.047839"
+          "sourceTs": "1775461997.047839",
+          "route": "none"
         },
         {
           "id": "1775145205.077179-a3",
@@ -5022,7 +5129,8 @@
           "priority": "high",
           "rationale": "A missing referral cost the booking.",
           "inferred": true,
-          "sourceTs": "1775459343.740499"
+          "sourceTs": "1775459343.740499",
+          "route": "none"
         },
         {
           "id": "1775145205.077179-a4",
@@ -5031,7 +5139,8 @@
           "priority": "medium",
           "rationale": "He relied on Google ratings to compare.",
           "inferred": false,
-          "sourceTs": "1775461997.047839"
+          "sourceTs": "1775461997.047839",
+          "route": "pod1"
         },
         {
           "id": "1775145205.077179-a5",
@@ -5040,7 +5149,8 @@
           "priority": "medium",
           "rationale": "Paras listed it among the opportunities.",
           "inferred": false,
-          "sourceTs": "1775461997.047839"
+          "sourceTs": "1775461997.047839",
+          "route": "pod1"
         },
         {
           "id": "1775145205.077179-a6",
@@ -5049,7 +5159,8 @@
           "priority": "medium",
           "rationale": "Booking delays left him confused.",
           "inferred": false,
-          "sourceTs": "1775461997.047839"
+          "sourceTs": "1775461997.047839",
+          "route": "pod1"
         }
       ],
       "gaps": [

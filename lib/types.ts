@@ -31,6 +31,8 @@ export interface Actionable {
   priority: "high" | "medium" | "low";
   rationale?: string;
   inferred?: boolean;
+  /** Felix pod key (see data/routing.json) or "none" when no tech team owns it. */
+  route?: string;
   sourceTs?: string | null;
 }
 
@@ -99,7 +101,7 @@ export interface HistoryEntry {
 
 export interface ActionableState {
   status: ActionableStatus;
-  owner?: string; // set when someone reassigns it
+  owner?: string; // pod key, set when someone reassigns it
   jiraUrl?: string;
   reason?: string;
   updatedBy: string;

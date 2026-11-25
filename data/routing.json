@@ -1,0 +1,49 @@
+{
+  "_source": "Copied from amberhq/fix-it-felix slack-bot/app.py (ROUTE_GROUP_MAP and the route_to rules in the system prompt), commit 7c41faa. Keep in sync with Felix.",
+  "pods": {
+    "pod1": {
+      "label": "Website team",
+      "slackGroupId": "S08PLM2KT0V",
+      "owns": "Website and student-facing amberstudent.com pages: search, property and listing pages, booking and payment flow."
+    },
+    "pod2": {
+      "label": "CRM & dialer team",
+      "slackGroupId": "S08PSBP5JMA",
+      "owns": "CRM, leads, agent tools, dialer, calls and telephony, attribution and lead data."
+    },
+    "pod3": {
+      "label": "Partner & whitelabel team",
+      "slackGroupId": "S08PLMA08AH",
+      "owns": "Partner dashboard, whitelabel / flex dashboard, sub-partners, *.studentacco.com."
+    },
+    "podApp": {
+      "label": "App team",
+      "slackGroupId": "S08P7L6NT63",
+      "owns": "The mobile apps."
+    },
+    "podAI": {
+      "label": "AI team",
+      "slackGroupId": "S08PRUPT7S6",
+      "owns": "AI product and platform (not AI calling): chatbot / Copilot."
+    },
+    "podPLG": {
+      "label": "PLG team",
+      "slackGroupId": "S08PS4DBPS7",
+      "owns": "Product-led growth and self-serve surfaces: referrals, Amber+, pre-arrival and post-booking journeys."
+    },
+    "podChina": {
+      "label": "China team",
+      "slackGroupId": "S08PLMR7BCM",
+      "owns": "China-cluster specific issues."
+    },
+    "qa": {
+      "label": "QA (supply & content)",
+      "slackGroupId": "S06NK9093MZ",
+      "owns": "Felix's interim owner for supply and content requests until a supply team exists."
+    }
+  },
+  "none": {
+    "label": "No tech owner",
+    "owns": "Research, marketing, sales-process and partnership-deal items. Like Felix, nobody is tagged rather than guessing; reassign it if a pod should own it."
+  }
+}

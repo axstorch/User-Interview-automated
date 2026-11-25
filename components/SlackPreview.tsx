@@ -1,21 +1,23 @@
 "use client";
 
-import { ownerOf, slackIdOf } from "@/lib/data";
+import { isRouteKey, NO_OWNER, podOf, routeOf } from "@/lib/data";
 import type { Interview } from "@/lib/types";
 import { useTeam } from "./TeamState";
 
 /**
- * What the bot will post in the interview's thread once it is live. It tags each
- * owner once and lists their actionables. No actionables → no message, only a ✅
- * reaction on the thread so people know it was captured.
+ * What the bot will post in the interview's thread once it is live. Like Felix,
+ * it tags each pod's Slack group once (<!subteam^ID>) and lists that pod's
+ * actionables; items with no tech owner are listed but tag nobody. No actionables →
+ * no message, only a ✅ reaction on the thread so people know it was captured.
  */
 export function SlackPreview({ interview }: { interview: Interview }) {
   const { state } = useTeam();
-  const byOwner = new Map<string, string[]>();
+  const byRoute = new Map<string, string[]>();
   for (const a of interview.actionables) {
-    const o = ownerOf(a, state.actionables[a.id]);
-    byOwner.set(o, [...(byOwner.get(o) ?? []), a.text]);
+    const r = routeOf(a, state.actionables[a.id]);
+    byRoute.set(r, [...(byRoute.get(r) ?? []), a.text]);
   }
+  const groups = [...byRoute.entries()].sort(([a], [b]) => Number(a === NO_OWNER) - Number(b === NO_OWNER));
 
   return (
     <section className="card">
@@ -41,19 +43,33 @@ export function SlackPreview({ interview }: { interview: Interview }) {
               📋 <b>{interview.interviewee.name}</b>&apos;s interview is in Interview Insights with{" "}
               {interview.insights.length} insights and {interview.actionables.length} actionables.
             </div>
-            {[...byOwner.entries()].map(([owner, items]) => (
-              <div key={owner} style={{ marginTop: 6 }}>
-                <span className="mention" title={slackIdOf(owner) ? `Slack ID ${slackIdOf(owner)}` : "No Slack ID yet"}>
-                  @{owner}
-                </span>{" "}
-                for you:
-                <ul>
-                  {items.map((t, i) => (
-                    <li key={i}>{t}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {groups.map(([route, items]) => {
+              const pod = podOf(route);
+              const tagged = route !== NO_OWNER && isRouteKey(route);
+              return (
+                <div key={route} style={{ marginTop: 6 }}>
+                  {tagged ? (
+                    <>
+                      <span className="mention" title={pod.slackGroupId ? `Slack group ${pod.slackGroupId}` : ""}>
+                        @{pod.label}
+                      </span>{" "}
+                      for you:
+                    </>
+                  ) : isRouteKey(route) ? (
+                    <span className="muted">No tech owner, nobody tagged:</span>
+                  ) : (
+                    <>
+                      <span className="mention">@{route}</span> for you:
+                    </>
+                  )}
+                  <ul>
+                    {items.map((t, i) => (
+                      <li key={i}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
             <div style={{ color: "var(--info)" }}>Open in Interview Insights →</div>
           </div>
         )}

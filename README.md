@@ -29,10 +29,24 @@ as `data/interviews.json`. Nothing updates automatically yet: no Slack bot, no s
 
 Every change records who made it and when (see *History* under the actionable).
 
-### Owners
+### Owners: routed like Felix
 
-Owners come from `data/owners.json` (product area → person, with Slack user id for the future bot). **The current
-mapping is a guess** made from who posts and is cc'd in the channel. Replace it with the real owners.
+Each actionable is routed to a **pod**, exactly the way Felix (`amberhq/fix-it-felix`) routes #tech-problems.
+`data/routing.json` is a copy of Felix's `ROUTE_GROUP_MAP` (pod → Slack user group) and its routing rules:
+
+| Pod | Owns |
+| --- | --- |
+| Website team (`pod1`) | Website, search, property and listing pages, booking and payment flow |
+| CRM & dialer team (`pod2`) | CRM, leads, agent tools, dialer and calls, attribution |
+| Partner & whitelabel team (`pod3`) | Partner / flex dashboard, whitelabel, sub-partners |
+| App team, AI team, China team | Mobile apps; chatbot / AI platform; China cluster |
+| PLG team (`podPLG`) | Referrals, Amber+, pre-arrival and post-booking journeys |
+| QA (`qa`) | Supply and content requests (Felix's interim owner) |
+| No tech owner (`none`) | Research, marketing, sales-process and partnership-deal items: nobody is tagged |
+
+The route of each actionable is stored as `route` in `data/interviews.json`. Like Felix, an item no pod clearly owns
+gets **no tag** rather than a guess. "Mistakenly assigned" lets anyone move an actionable to the right pod. If Felix's
+groups change, update `data/routing.json` from Felix's `slack-bot/app.py`.
 
 ### Who is "me"?
 

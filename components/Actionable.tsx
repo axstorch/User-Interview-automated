@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { knownPeople, ownerOf, slackMessageUrl } from "@/lib/data";
+import { NO_OWNER, ownerOf, podOf, ROUTE_KEYS, routeOf, slackMessageUrl } from "@/lib/data";
 import { fmtDate } from "@/lib/export";
 import { STATUSES, statusLabel } from "@/lib/statuses";
 import type { Actionable as A, ActionableStatus, Interview } from "@/lib/types";
@@ -29,6 +29,7 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
   const s = state.actionables[a.id];
   const status = s?.status ?? "open";
   const owner = ownerOf(a, s);
+  const route = routeOf(a, s);
   const [pending, setPending] = useState<Pending | null>(null);
   const [needMe, setNeedMe] = useState<ActionableStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -62,9 +63,9 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
         <div className="meta" style={{ marginTop: 6 }}>
           <span className="badge">{a.area}</span>
           <span className={`pill-${a.priority}`}>● {a.priority} priority</span>
-          <span>
-            Owner: <b style={{ color: "var(--ink)" }}>{owner}</b>
-            {!s?.owner && <span title="Suggested from the area. Not confirmed"> (suggested)</span>}
+          <span title={podOf(route).owns}>
+            Owner: <b style={{ color: route === NO_OWNER ? "var(--ink-3)" : "var(--ink)" }}>{owner}</b>
+            {!s?.owner && route !== NO_OWNER && <span> (routed by AI)</span>}
           </span>
           {a.inferred && <span title="The interviewer didn't say this outright; the AI drew it from the insight">AI-inferred</span>}
           {src && (
@@ -136,6 +137,7 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
         <StatusDialog
           pending={pending}
           owner={owner}
+          route={route}
           onCancel={() => setPending(null)}
           onSave={async (extra) => {
             const err = await changeStatus(a.id, { status: pending.status, by: me, ...extra }, owner);
@@ -151,11 +153,13 @@ export function ActionableItem({ interview, a, showInterview = false }: { interv
 function StatusDialog({
   pending,
   owner,
+  route,
   onCancel,
   onSave,
 }: {
   pending: Pending;
   owner: string;
+  route: string;
   onCancel: () => void;
   onSave: (extra: { jiraUrl?: string; reason?: string; newOwner?: string }) => Promise<string | null>;
 }) {
@@ -166,7 +170,7 @@ function StatusDialog({
   const copy = {
     jiraUrl: { title: "Link the Jira ticket", body: "Paste the ticket link so anyone can follow the work.", label: "Jira ticket link", ph: "https://amberhq.atlassian.net/browse/P2-1234" },
     reason: { title: "Why won't we pick this up?", body: "A reason is required, so the next person reading this interview knows it was decided.", label: "Reason", ph: "e.g. Already covered by the search redesign" },
-    newOwner: { title: "Who should own this?", body: `It's currently assigned to ${owner}. It will move to the person you pick and go back to Open.`, label: "Right owner", ph: "Start typing a name" },
+    newOwner: { title: "Which team should own this?", body: `It's currently with ${owner}. It moves to the team you pick and goes back to Open.`, label: "Right team", ph: "" },
   }[pending.needs];
 
   const submit = async () => {
@@ -185,24 +189,30 @@ function StatusDialog({
         <label htmlFor="sd-value">{copy.label}</label>
         {pending.needs === "reason" ? (
           <textarea id="sd-value" className="input" autoFocus maxLength={1000} placeholder={copy.ph} value={value} onChange={(e) => setValue(e.target.value)} />
+        ) : pending.needs === "newOwner" ? (
+          <>
+            <select id="sd-value" className="select" style={{ width: "100%" }} autoFocus value={value} onChange={(e) => setValue(e.target.value)}>
+              <option value="">Pick a team</option>
+              {ROUTE_KEYS.filter((k) => k !== route).map((k) => (
+                <option key={k} value={k}>
+                  {podOf(k).label}
+                </option>
+              ))}
+            </select>
+            {value && <p style={{ margin: "8px 0 0", fontSize: 13 }}>{podOf(value).owns}</p>}
+          </>
         ) : (
           <input
             id="sd-value"
             className="input"
             autoFocus
-            list={pending.needs === "newOwner" ? "owner-people" : undefined}
-            type={pending.needs === "jiraUrl" ? "url" : "text"}
+            type="url"
             placeholder={copy.ph}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submit()}
           />
         )}
-        <datalist id="owner-people">
-          {knownPeople.filter((p) => p !== owner).map((p) => (
-            <option key={p} value={p} />
-          ))}
-        </datalist>
         {error && <div className="error" style={{ marginTop: 8 }}>{error}</div>}
         <div className="row-end">
           <button className="btn ghost" onClick={onCancel}>

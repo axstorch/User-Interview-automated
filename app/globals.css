@@ -1,54 +1,31 @@
-/* Amber brand: #FFB400 is Amber's default brand colour (s.base PartnerBuilds::ColorHelper). */
+/* Amber brand: #ed3a56 on white. Light theme only: the tool stays white even when the OS is in dark mode. */
 :root {
-  --brand: #ffb400;
-  --brand-strong: #e6a200;
-  --brand-ink: #1a1400;
-  --brand-soft: #fff6dd;
-  --brand-line: #ffe4a1;
+  --brand: #ed3a56;
+  --brand-strong: #d42a46;
+  --brand-ink: #ffffff;      /* text on a brand-coloured surface */
+  --brand-text: #c8213d;     /* brand-coloured text on white (passes AA) */
+  --brand-soft: #fdedf0;
+  --brand-line: #f8c5ce;
 
-  --bg: #f7f6f3;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #fbfaf8;
+  --surface-2: #f8f8fa;
   --ink: #17171a;
   --ink-2: #4a4a52;
-  --ink-3: #7a7a85;
-  --line: #e8e6e1;
-  --line-strong: #d8d5ce;
+  --ink-3: #6e6e78;
+  --line: #ebebef;
+  --line-strong: #d9d9df;
   --focus: #1f6feb;
 
   --ok: #1f7a4d;   --ok-soft: #e6f4ec;
   --info: #1d5fc4; --info-soft: #e7effb;
   --warn: #9a6200; --warn-soft: #fdf1da;
   --bad: #b42318;  --bad-soft: #fdeceb;
-  --mute: #5f5f6a; --mute-soft: #efeeeb;
+  --mute: #5f5f6a; --mute-soft: #f1f1f4;
 
   --radius: 10px;
-  --shadow: 0 1px 2px rgba(20, 20, 30, 0.05), 0 4px 16px rgba(20, 20, 30, 0.04);
+  --shadow: 0 1px 2px rgba(20, 20, 30, 0.04), 0 4px 16px rgba(20, 20, 30, 0.04);
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --brand-ink: #1a1400;
-    --brand-soft: #2b2310;
-    --brand-line: #4a3a12;
-    --bg: #121214;
-    --surface: #1a1a1d;
-    --surface-2: #202024;
-    --ink: #f1f0ed;
-    --ink-2: #c4c3c0;
-    --ink-3: #8f8e8b;
-    --line: #2c2c31;
-    --line-strong: #3a3a40;
-    --focus: #6aa6ff;
-    --ok: #5fcf95;   --ok-soft: #173326;
-    --info: #7fb0ff; --info-soft: #172743;
-    --warn: #f0b85a; --warn-soft: #3a2b10;
-    --bad: #ff8a80;  --bad-soft: #3d1a18;
-    --mute: #a9a8a5; --mute-soft: #26262a;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    color-scheme: dark;
-  }
 }
 
 * { box-sizing: border-box; }
@@ -95,7 +72,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .avatar {
   width: 24px; height: 24px; border-radius: 50%; display: inline-grid; place-items: center;
-  background: var(--brand-soft); color: var(--warn); font-size: 11px; font-weight: 700; flex: none;
+  background: var(--brand-soft); color: var(--brand-text); font-size: 11px; font-weight: 700; flex: none;
 }
 
 .banner {
@@ -165,7 +142,7 @@ textarea.input { height: auto; min-height: 84px; padding: 8px 10px; resize: vert
   display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 999px;
   font-size: 12px; font-weight: 500; background: var(--mute-soft); color: var(--mute); white-space: nowrap;
 }
-.badge.brand { background: var(--brand-soft); color: var(--warn); }
+.badge.brand { background: var(--brand-soft); color: var(--brand-text); }
 .badge.ok { background: var(--ok-soft); color: var(--ok); }
 .badge.info { background: var(--info-soft); color: var(--info); }
 .badge.warn { background: var(--warn-soft); color: var(--warn); }
@@ -188,7 +165,7 @@ textarea.input { height: auto; min-height: 84px; padding: 8px 10px; resize: vert
 .list > li:last-child { border-bottom: 0; padding-bottom: 0; }
 .bullets { margin: 0; padding-left: 18px; }
 .bullets li { margin: 4px 0; }
-.quote { margin: 6px 0 0; padding-left: 10px; border-left: 3px solid var(--brand); color: var(--ink-2); font-style: italic; }
+.quote { margin: 6px 0 0; padding-left: 10px; border-left: 3px solid var(--brand-line); color: var(--ink-2); font-style: italic; }
 .src { font-size: 12px; color: var(--ink-3); text-decoration: none; white-space: nowrap; }
 .src:hover { color: var(--info); text-decoration: underline; }
 .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); margin: 18px 0 8px; }

@@ -1,13 +1,16 @@
 import raw from "@/data/interviews.json";
-import ownersRaw from "@/data/owners.json";
+import routingRaw from "@/data/routing.json";
 import type { Actionable, ActionableState, Dataset, Interview } from "./types";
 
 export const dataset = raw as unknown as Dataset;
 
-const owners = ownersRaw as {
-  areas: Record<string, { owner: string; slackId?: string }>;
-  fallback: { owner: string; slackId?: string };
-};
+// Pods and Slack groups are Felix's (amberhq/fix-it-felix ROUTE_GROUP_MAP).
+export type Pod = { label: string; slackGroupId?: string; owns: string };
+const routing = routingRaw as unknown as { pods: Record<string, Pod>; none: Pod };
+export const PODS: Record<string, Pod> = routing.pods;
+export const NO_OWNER = "none";
+export const ROUTE_KEYS = [...Object.keys(PODS), NO_OWNER];
+export const isRouteKey = (k: string) => ROUTE_KEYS.includes(k);
 
 export const interviews: Interview[] = [...dataset.interviews].sort((a, b) =>
   interviewDate(b).localeCompare(interviewDate(a)),
@@ -21,28 +24,24 @@ export function findInterview(id: string): Interview | undefined {
   return interviews.find((i) => i.id === id);
 }
 
-export function suggestedOwner(area: string): { owner: string; slackId?: string } {
-  return owners.areas[area] ?? owners.fallback;
+export function podOf(key: string): Pod {
+  return PODS[key] ?? routing.none;
 }
 
-/** The owner shown on an actionable: a reassignment wins over the area's default. */
+/** The route of an actionable: a reassignment wins over the AI's routing. */
+export function routeOf(a: Actionable, state?: ActionableState): string {
+  if (state?.owner) return state.owner; // a pod key, or a person's name saved before pod routing
+  return a.route && isRouteKey(a.route) ? a.route : NO_OWNER;
+}
+
+/** Display name of whoever owns an actionable. */
 export function ownerOf(a: Actionable, state?: ActionableState): string {
-  return state?.owner || suggestedOwner(a.area).owner;
+  const r = routeOf(a, state);
+  return isRouteKey(r) ? podOf(r).label : r;
 }
 
-export function slackIdOf(name: string): string | undefined {
-  const fromOwners = Object.values(owners.areas).find((o) => o.owner === name)?.slackId;
-  if (fromOwners) return fromOwners;
-  return Object.entries(dataset.people ?? {}).find(([, p]) => p.name === name)?.[0];
-}
-
-/** Everyone we know by name: area owners plus people seen in the channel. */
-export const knownPeople: string[] = Array.from(
-  new Set([
-    ...Object.values(owners.areas).map((o) => o.owner),
-    ...Object.values(dataset.people ?? {}).map((p) => p.name),
-  ]),
-)
+/** People seen in the channel, offered when someone picks their own name. */
+export const knownPeople: string[] = Array.from(new Set(Object.values(dataset.people ?? {}).map((p) => p.name)))
   .filter((n) => n && !/notion|bot/i.test(n))
   .sort((a, b) => a.localeCompare(b));
 

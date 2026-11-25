@@ -45,7 +45,7 @@ export function toMarkdown(list: Interview[], state: TeamState): string {
         const s = state.actionables[a.id];
         const st = statusLabel(s?.status ?? "open");
         const extra = s?.jiraUrl ? ` · ${s.jiraUrl}` : s?.reason ? ` · Reason: ${s.reason}` : "";
-        out.push(`- [${st}] ${a.text} — ${a.area}, owner ${ownerOf(a, s)}, ${a.priority} priority${extra}`);
+        out.push(`- [${st}] ${a.text} — ${a.area}, team ${ownerOf(a, s)}, ${a.priority} priority${extra}`);
       }
       out.push(``);
     }
@@ -66,7 +66,7 @@ const csvCell = (v: unknown) => {
 /** One row per actionable, so it pastes straight into a sheet or a Jira import. */
 export function toCsv(list: Interview[], state: TeamState): string {
   const head = [
-    "Interview date", "Interviewee", "Type", "Actionable", "Area", "Priority", "Owner", "Status",
+    "Interview date", "Interviewee", "Type", "Actionable", "Area", "Priority", "Owner team", "Status",
     "Jira link", "Reason", "Last updated by", "Interview link",
   ];
   const rows = list.flatMap((i) =>

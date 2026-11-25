@@ -8,7 +8,7 @@ import { ActionableItem } from "@/components/Actionable";
 import { useTeam } from "@/components/TeamState";
 
 export default function ActionablesPage() {
-  const { state, me } = useTeam();
+  const { state } = useTeam();
   const [status, setStatus] = useState("open");
   const [owner, setOwner] = useState("");
   const [area, setArea] = useState("");
@@ -66,8 +66,7 @@ export default function ActionablesPage() {
             ))}
           </select>
           <select className="select" value={owner} onChange={(e) => setOwner(e.target.value)} aria-label="Owner">
-            <option value="">Every owner</option>
-            {me && owners.includes(me) && <option value={me}>Mine ({me})</option>}
+            <option value="">Every team</option>
             {owners.map((o) => <option key={o} value={o}>{o}</option>)}
           </select>
           <select className="select" value={area} onChange={(e) => setArea(e.target.value)} aria-label="Area">

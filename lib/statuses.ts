@@ -1,3 +1,4 @@
+import { isRouteKey, podOf } from "./data";
 import type { ActionableState, ActionableStatus, StatusChange } from "./types";
 
 export const STATUSES: {
@@ -14,7 +15,7 @@ export const STATUSES: {
   {
     value: "mistakenly_assigned",
     label: "Mistakenly assigned",
-    hint: "Not mine. Hand it to the right owner",
+    hint: "Wrong team. Hand it to the right pod",
     needs: "newOwner",
   },
 ];
@@ -40,7 +41,7 @@ export function validateChange(c: Partial<StatusChange>): string | null {
   }
   if (c.status === "mistakenly_assigned") {
     const o = (c.newOwner ?? "").trim();
-    if (!o || o.length > MAX.owner) return "Say who should own this instead";
+    if (!o || o.length > MAX.owner || !isRouteKey(o)) return "Pick the team that should own this";
   }
   return null;
 }
@@ -61,7 +62,7 @@ export function applyChange(
 
   if (c.status === "mistakenly_assigned") {
     const newOwner = c.newOwner!.trim();
-    history.push({ at: now, by, status: "mistakenly_assigned", note: `Reassigned from ${currentOwner} to ${newOwner}` });
+    history.push({ at: now, by, status: "mistakenly_assigned", note: `Reassigned from ${currentOwner} to ${podOf(newOwner).label}` });
     return { status: "open", owner: newOwner, updatedBy: by, updatedAt: now, history };
   }
 
