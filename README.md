@@ -55,6 +55,11 @@ Actionables are routed to the product area best placed to assess them. The curre
 
 When ownership is unclear, the item is left unassigned rather than sent to a team by guesswork. Anyone can use **Mistakenly assigned** to move an actionable to the right owner. The current routes and Slack groups are maintained in `data/routing.json`, based on Felix's `amberhq/fix-it-felix` routing; update them when team ownership changes.
 
+## Proof of Work
+
+<img width="2880" height="1342" alt="Screenshot 2026-11-25 at 9 54 38 PM" src="https://github.com/user-attachments/assets/1371b551-f945-4411-aa7e-b797ab60ac95" />
+
+
 ## Prototype boundaries
 
 This is a way to explore a better feedback-to-decision workflow, not yet a complete source of truth:
